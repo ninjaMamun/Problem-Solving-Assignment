@@ -18,22 +18,53 @@ function kilometerToMeter(kilometer) {
 }
 
 // Kilometer To Meter Conversion Problem End
-console.log(kilometerToMeter(5));
+// console.log(kilometerToMeter(5));
 
 // Budget Calculator Problem Start 
 // clock - 50 | phone - 100 | laptop - 500
 
-function budgetCalculator(numbersOfClock, numbersOfPhone, numbersOfLaptop){
-    if(numbersOfClock <= 0 && numbersOfLaptop <= 0 && numbersOfLaptop <= 0){
+function budgetCalculator(numbersOfClock, numbersOfPhone, numbersOfLaptop) {
+    if (numbersOfClock <= 0 && numbersOfLaptop <= 0 && numbersOfLaptop <= 0) {
         console.warn("Please Give Valid Input")
-    }else{
+    } else {
         var budget = 0;
-        if(numbersOfClock < 0 || numbersOfPhone < 0 || numbersOfLaptop < 0){
+        if (numbersOfClock < 0 || numbersOfPhone < 0 || numbersOfLaptop < 0) {
             console.warn("Numbers of items can't be negative value")
 
-        }else{
+        } else {
             budget = (numbersOfClock * 50) + (numbersOfPhone * 100) + (numbersOfLaptop * 500);
             return budget;
         }
     }
 }
+
+// Budget Calculator Problem End 
+
+//Hotel Cost Problem Start 
+//1-10 = 100; 11-20 = 80; 21-any = 50
+
+function hotelCost(numbersOfDay) {
+    if (numbersOfDay <= 0) {
+        console.warn("Please Give Valid Input")
+    } else {
+        var totalBill = 0;
+
+        if (numbersOfDay <= 10) {
+            totalBill = numbersOfDay * 100;
+        } else if (numbersOfDay <= 20) {
+            var firstTenDays = 10 * 100;
+            var remainingDays = numbersOfDay - 10;
+            var secondTenDays = remainingDays * 80;
+            totalBill = firstTenDays + secondTenDays;
+        } else {
+            var firstTenDays = 10 * 100;
+            var secondTenDays = 10 * 80;
+            var remainingDays = numbersOfDay - 20;
+            var otherDays = remainingDays * 50;
+            totalBill = firstTenDays + secondTenDays + otherDays;
+        }
+        return totalBill;
+    }
+}
+
+console.log(hotelCost(23));
