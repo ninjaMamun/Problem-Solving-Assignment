@@ -1,1 +1,1 @@
-# Problem-Solving-Assignment
+# Problem Solving Assignment
